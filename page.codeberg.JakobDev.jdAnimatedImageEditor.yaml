@@ -17,28 +17,21 @@ finish-args:
   - --device=dri
   - --share=ipc
 
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    add-ld-path: .
+    version: '23.08'
+
 modules:
   - python3-modules.yaml
 
   - name: ffmpeg
-    config-opts:
-      - --enable-shared
-      - --disable-static
-      - --enable-gnutls
-      - --disable-doc
-      - --disable-ffprobe
-      - --disable-ffplay
-    sources:
-      - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-6.0.tar.gz
-        sha256: f4ccf961403752c93961927715f524576d1f4dd02cd76d8c76aed3bbe6686656
-        x-checker-data:
-          type: anitya
-          project-id: 5405
-          stable-only: true
-          url-template: https://ffmpeg.org/releases/ffmpeg-$version.tar.gz
-    cleanup:
-      - /share/ffmpeg/examples
+    buildsystem: simple
+    build-commands:
+      - mkdir -p $FLATPAK_DEST/bin
+      - mkdir -p $FLATPAK_DEST/lib/ffmpeg
+      - ln -s /usr/bin/ffmpeg $FLATPAK_DEST/bin/ffmpeg
 
   - name: jdAnimatedImageEditor
     buildsystem: simple
@@ -54,4 +47,3 @@ modules:
           url: https://codeberg.org/api/v1/repos/JakobDev/jdAnimatedImageEditor/releases/latest
           version-query: .tag_name
           url-query: .tarball_url
-
