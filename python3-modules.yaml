@@ -36,8 +36,8 @@ modules:
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/24/e8/09e8d662a9675a4e4f5dd7a8e6127b463a091d2703ed931a64aa66d00065/requests-2.32.0-py3-none-any.whl
-        sha256: f2c3881dddb70d056c5bd7600a4fae312b2a300e39be6a118d30b90bd27262b5
+        url: https://files.pythonhosted.org/packages/9c/a6/b9bf71eeb6dc835311b5c47a7c90df57b08061091161639611252257768d/requests-2.32.1-py3-none-any.whl
+        sha256: 21ac9465cdf8c1650fe1ecde8a71669a93d4e6f147550483a2967d08396a56a5
         x-checker-data:
           name: requests
           packagetype: bdist_wheel
