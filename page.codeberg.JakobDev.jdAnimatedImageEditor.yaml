@@ -25,6 +25,7 @@ modules:
     build-commands:
       - pip install --no-deps --no-build-isolation --prefix=$FLATPAK_DEST .
       - python ./install-unix-datafiles.py --prefix=$FLATPAK_DEST
+      - ln -s /usr/bin/ffmpeg $FLATPAK_DEST/bin/ffmpeg
     sources:
       - type: archive
         url: https://codeberg.org/JakobDev/jdAnimatedImageEditor/archive/1.4.tar.gz
