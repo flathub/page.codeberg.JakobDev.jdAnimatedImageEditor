@@ -16,8 +16,7 @@ modules:
           packagetype: bdist_wheel
           type: pypi
     cleanup:
-      - /bin
-      - /share/man/man1
+      - "*"
   - name: python3-pillow
     buildsystem: simple
     build-commands:
